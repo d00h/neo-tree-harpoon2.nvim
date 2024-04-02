@@ -7,7 +7,12 @@ local function list_harpoon_items()
   local harpoon_items = harpoon:list()
   local children_items = {}
   for idx, favorite in ipairs(harpoon_items.items) do
-    local value = favorite.value
+    local value
+    if type(favorite) == "string" then
+      value = favorite
+    elseif type(favorite) == "table" then
+      value = favorite.value
+    end
     if value == nil then
       goto continue
     end
