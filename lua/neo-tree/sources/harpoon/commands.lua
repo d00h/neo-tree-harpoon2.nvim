@@ -54,7 +54,7 @@ M.delete = function(state, toggle_directory)
   if pos ~= nil then
     safe(function(pos)
       local harpoon_items = harpoon:list()
-      harpoon_items:removeAt(pos)
+      harpoon_items:remove_at(pos)
     end, pos)
     harpoon_adapter.copy(state)
   end
